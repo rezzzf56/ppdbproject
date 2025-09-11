@@ -1,20 +1,21 @@
 <?php
-
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('halamanumum');
 });
+Route::get('/daftar', [App\Http\Controllers\DaftarController::class, 'daftar'])->name('daftar');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard/CPD', function () {
+        return "Selamat datang di dashboard!";
+    });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/dashboard/Admin', function () {
+        return "Halaman profil";
+    });
+        Route::get('/dashboard/SuperAdmin', function () {
+        return "Halaman profil";
+    });
 });
 
 require __DIR__.'/auth.php';
