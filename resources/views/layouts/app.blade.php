@@ -19,6 +19,9 @@
   </head>
   <body>
     <!-- navbar -->
+    @include('layouts.navbar')
+      <!-- navbar -->
+  
 <!-- content -->
     <div class="content d-flex align-items-center bg-light">
         @yield('content')
