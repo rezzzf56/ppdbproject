@@ -42,7 +42,7 @@
 
                 <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                   <li><a href="#home-section" class="nav-link">Informasi PPDB</a></li>
-                  <li><a href="{{ route('loginform') }}" class="nav-link">Login</a></li>                
+                  <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>                
                   <li><a href="{{ route('daftar') }}" class="nav-link">Daftar</a></li>
                   <li class="has-children">
                     <a href="#about-section" class="nav-link">About Us</a>
