@@ -8,7 +8,7 @@
 </head>
 <body class="ld">
     <div class="login-container">
-       
+                   <form action="{{ route('login') }}" method="POST" id="loginForm">
                     <div class="login-card">
             <div class="login-header">
                 <div class="logo">
@@ -20,8 +20,6 @@
                 <h1>Sign in to Dashboard</h1>
                 <p>Welcome back! Please sign in to continue</p>
             </div>
-            
-             <form action="{{ route('login') }}" method="POST" id="loginForm">
                 <div class="input-group">
                     <input type="email" id="email" name="email" required autocomplete="email" placeholder=" ">
                     <label for="email">Email address</label>
@@ -32,10 +30,10 @@
                 <div class="input-group">
                     <input type="password" id="password" name="password" required autocomplete="current-password" placeholder=" ">
                     <label for="password">Password</label>
-                    <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
-                        <svg class="eye-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <!-- <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
+                       <!-- <svg class="eye-icon" width="16" height="16" mx-0 viewBox="0 0 16 16" fill="none">
                             <path d="M8 3C4.5 3 1.6 5.6 1 8c.6 2.4 3.5 5 7 5s6.4-2.6 7-5c-.6-2.4-3.5-5-7-5zm0 8.5A3.5 3.5 0 118 4.5a3.5 3.5 0 010 7zm0-5.5a2 2 0 100 4 2 2 0 000-4z" fill="currentColor"/>
-                        </svg>
+                        </svg> --> 
                     </button>
                     <span class="input-border"></span>
                     <span class="error-message" id="passwordError"></span>
