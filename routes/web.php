@@ -6,16 +6,20 @@ Route::get('/', function () {
 });
 Route::get('/daftar', [App\Http\Controllers\DaftarController::class, 'daftar'])->name('daftar');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard/CPD', function () {
-        return "Selamat datang di dashboard!";
-    });
+    Route::get('/super/dashboard', function () {
+    return view('dashboard.superadmin');
+})->name('super.dashboard')->middleware(['auth','role:superadmin']);
 
-    Route::get('/dashboard/Admin', function () {
-        return "Halaman profil";
-    });
-        Route::get('/dashboard/SuperAdmin', function () {
-        return "Halaman profil";
-    });
+// Admin
+Route::get('/admin/dashboard', function () {
+    return view('dashboard.admin');
+})->name('admin.dashboard')->middleware(['auth','role:admin']);
+
+// CPD
+Route::get('/cpd/dashboard', function () {
+    return view('dashboard.cpd');
+})->name('cpd.dashboard')->middleware(['auth','role:cpd']);
+   
 });
 
 require __DIR__.'/auth.php';

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Datacpd extends Model
+class Profiles extends Model
 {
      protected $fillable = [
         'user_id','nik','nis','nama_lengkap','jenis_kelamin','tanggal_lahir',
@@ -12,7 +12,9 @@ class Datacpd extends Model
         'pilihan2','dokumenpendukung'
     ];
 
-    public function user() { return $this->belongsTo(User::class); }
+    public function user() { 
+        return $this->belongsTo(User::class); 
+    }
 }
 
 

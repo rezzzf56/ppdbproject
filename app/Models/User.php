@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
     ];
@@ -58,6 +58,6 @@ public function hasPermission(string $permission): bool {
         ->exists();
 }
 
-public function datacpd() { return $this->hasOne(\App\Models\Datacpd::class); }
+public function datacpd() { return $this->hasOne(\App\Models\Profiles::class); }
 
 }

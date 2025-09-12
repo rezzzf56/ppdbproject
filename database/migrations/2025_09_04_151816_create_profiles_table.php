@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('dataCPD', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('nik',16)->nullable();
@@ -23,7 +23,8 @@ return new class extends Migration {
             $table->string('pekerjaanorgtua',16)->nullable();
             $table->enum('pilihansatu', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
             $table->enum('pilihandua', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
-            $table->string('dokumen pendukung');
+            $table->string('dokumen_pendukung')->nullable();
+;
             $table->timestamps();
         });
     }

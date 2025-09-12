@@ -9,6 +9,7 @@
 <body class="ld">
     <div class="login-container">
                    <form action="{{ route('login') }}" method="POST" id="loginForm">
+                    @csrf
                     <div class="login-card">
             <div class="login-header">
                 <div class="logo">
