@@ -58,6 +58,6 @@ public function hasPermission(string $permission): bool {
         ->exists();
 }
 
-public function profile() { return $this->hasOne(\App\Models\Profile::class); }
+public function datacpd() { return $this->hasOne(\App\Models\Datacpd::class); }
 
 }
