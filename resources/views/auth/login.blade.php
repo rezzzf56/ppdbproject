@@ -8,7 +8,7 @@
 </head>
 <body class="ld">
     <div class="login-container">
-                   <form action="{{ route('login') }}" method="POST" id="loginForm">
+                   <form action="{{ route('login.store') }}" method="POST" id="loginForm">
                     @csrf
                     <div class="login-card">
             <div class="login-header">
@@ -108,6 +108,5 @@
     </div>
 
     <script src="{{asset('js/form-utils.js')}}"></script>
-    <script src="{{asset('js/ld/script.js')}}"></script>
 </body>
 </html>

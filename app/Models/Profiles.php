@@ -12,9 +12,7 @@ class Profiles extends Model
         'pilihan2','dokumenpendukung'
     ];
 
-    public function user() { 
-        return $this->belongsTo(User::class); 
-    }
+
 }
 
 
