@@ -1,5 +1,22 @@
 <?php
 
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Datacpd extends Model
+{
+     protected $fillable = [
+        'user_id','nik','nis','nama_lengkap','jenis_kelamin','tanggal_lahir',
+        'alamat','asal_sekolah','nomor_telepon','email','namaorgtua','pekerjaanorgtua',
+    ];
+
+    public function user() { return $this->belongsTo(User::class); }
+}
+
+}
+
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,8 +38,8 @@ return new class extends Migration {
             $table->string('email',16)->nullable();
             $table->string('namaorgtua',64)->nullable();
             $table->string('pekerjaanorgtua',16)->nullable();
-            $table->enum('pilihansatu', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
-            $table->enum('pilihandua', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
+            $table->enum('pilihan jurusan ke 1', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
+            $table->enum('pilihan jurusan ke 2', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
             $table->string('dokumen pendukung');
             $table->timestamps();
         });
