@@ -1,11 +1,11 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\RoleMiddleware;
 
 Route::get('/', function () {
     return view('halamanumum');
 });
 Route::get('/daftar', [App\Http\Controllers\DaftarController::class, 'daftar'])->name('daftar');
-Route::get('/login', [App\Http\Controllers\DaftarController::class, 'loginform'])->name('loginform');
 Route::middleware(['auth'])->group(function () {
     Route::get('/super/dashboard', function () {
     return view('dashboard.superadmin');
