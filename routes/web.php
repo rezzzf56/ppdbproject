@@ -1,26 +1,33 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\RoleMiddleware;
+use App\Http\Controllers\DaftarController;
 
 Route::get('/', function () {
     return view('halamanumum');
 });
-Route::get('/daftar', [App\Http\Controllers\DaftarController::class, 'daftar'])->name('daftar');
+Route::get('/info', [App\Http\Controllers\HalamanController::class, 'info'])->name('info');
+Route::get('/jurusan',[App\Http\Controllers\HalamanController::class, 'jurusan'])->name('jurusan');
+Route::get('/faq',[App\Http\Controllers\HalamanController::class, 'faq'])->name('faq');
+Route::get('/about',[App\Http\Controllers\HalamanController::class, 'about'])->name('about');
+Route::get('/daftar', [DaftarController::class, 'jalurpendaftaran'])->name('jalurpendaftaran');
+Route::post('/pendaftaran/jalurpendaftaran', [DaftarController::class, 'simpanJalur'])->name('simpanJalur');
+Route::get('/pendaftaran/{id}/{jalur}', [DaftarController::class, 'form'])->name('daftar.form');
+Route::post('/pendaftaran/{id}/{jalur}', [DaftarController::class, 'simpanForm'])->name('daftar.simpanForm');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/super/dashboard', function () {
-    return view('dashboard.superadmin');
-})->name('super.dashboard')->middleware(['auth','role:superadmin']);
+    Route::get('/superadmin/dashboard', function () {
+    return view('dashboard.superadmin.superadmin');
+})->name('super.dashboard')->middleware(['auth']);
 
 // Admin
 Route::get('/admin/dashboard', function () {
-    return view('dashboard.admin');
-})->name('admin.dashboard')->middleware(['auth','role:admin']);
+    return view('dashboard.admin.admin');
+})->name('admin.dashboard')->middleware(['auth']);
 
 // CPD
 Route::get('/cpd/dashboard', function () {
-    return view('dashboard.cpd');
-})->name('cpd.dashboard')->middleware(['auth','role:cpd']);
-   
+    return view('dashboard.cpd.cpd');
+})->name('cpd.dashboard')->middleware(['auth']);
+
 });
 
 require __DIR__.'/auth.php';

@@ -9,9 +9,9 @@ use Illuminate\Http\RedirectResponse;
 
 class AuthenticatedSessionController extends Controller
 {
-        public function create()
+    public function create()
     {
-        return view('auth.login'); 
+        return view('auth.login');
     }
     public function store(Request $request): RedirectResponse
     {
@@ -34,6 +34,12 @@ class AuthenticatedSessionController extends Controller
         } elseif ($user->hasRole('admin')) {
             return redirect()->route('admin.dashboard');
         } elseif ($user->hasRole('cpd')) {
+            if ($user->profiles && $user->profiles->status !== 'active') {
+                Auth::logout();
+                return back()->withErrors([
+                    'email' => 'Akun Anda belum diaktivasi admin atau ditolak.'
+                ]);
+            }
             return redirect()->route('cpd.dashboard');
         }
         return redirect('/');
