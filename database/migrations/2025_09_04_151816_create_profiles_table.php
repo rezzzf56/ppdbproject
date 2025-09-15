@@ -9,10 +9,10 @@ return new class extends Migration {
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->enum('jalur_pendaftaran', ['afirmasi', 'prestasi', 'zonasi'])->nullable();
             $table->string('nik',16)->nullable();
             $table->string('nis',16)->nullable();
-            $table->string('nama_lengkap',64);
+            $table->string('nama_lengkap',64)->nullable();
             $table->enum('jenis_kelamin', ['L', 'P'])->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->text('alamat')->nullable();
@@ -24,6 +24,9 @@ return new class extends Migration {
             $table->enum('pilihansatu', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
             $table->enum('pilihandua', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
             $table->string('dokumen_pendukung')->nullable();
+            $table->enum('status', ['pending', 'active', 'rejected'])->default('pending');
+$table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
+
 ;
             $table->timestamps();
         });

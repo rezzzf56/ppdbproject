@@ -10,27 +10,10 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         // Roles
-        $super = Role::firstOrCreate(['slug'=>'superadmin'], ['username'=>'Super Admin']);
-        $admin = Role::firstOrCreate(['slug'=>'admin'], ['username'=>'Admin']);
-        $cpd   = Role::firstOrCreate(['slug'=>'cpd'], ['username'=>'CPD']);
-
-        // Permissions (opsional)
-        $perms = collect([
-            ['slug'=>'manage_admin','username'=>'Kelola Admin'],
-            ['slug'=>'manage_cpd','username'=>'Kelola CPD'],
-            ['slug'=>'view_result','username'=>'Lihat Hasil Seleksi'],
-            ['slug'=>'fill_form','username'=>'Isi Formulir'],
-            ['slug'=>'upload_berkas','username'=>'Upload Berkas'],
-        ])->map(fn($p) => Permission::firstOrCreate(['slug'=>$p['slug']], ['username'=>$p['username']]));
-
+       $super = Role::firstOrCreate(['slug'=>'superadmin'], ['name'=>'Super Admin']);
+$admin = Role::firstOrCreate(['slug'=>'admin'], ['name'=>'Admin']);
+$cpd   = Role::firstOrCreate(['slug'=>'cpd'], ['name'=>'CPD']);
         // Mapping role -> permission
-        $super->permissions()->sync($perms->pluck('id')); // superadmin full akses
-        $admin->permissions()->sync(
-            $perms->whereIn('slug', ['manage_cpd','view_result'])->pluck('id')
-        );
-        $cpd->permissions()->sync(
-            $perms->whereIn('slug', ['fill_form','upload_berkas','view_result'])->pluck('id')
-        );
 
         // Buat user contoh dengan role
         $u1 = User::firstOrCreate(['email'=>'super@ppdb.test'], [

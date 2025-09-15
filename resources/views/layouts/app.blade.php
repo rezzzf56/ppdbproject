@@ -13,8 +13,10 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
 
-    <title>Website Menu #3</title>
+
+    <title>PPDB Online</title>
       @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body>

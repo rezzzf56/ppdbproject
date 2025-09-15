@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -45,19 +46,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function roles() { return $this->belongsToMany(\App\Models\Role::class, 'user_role'); }
-
-public function hasRole($roles): bool {
-    $roles = is_array($roles) ? $roles : [$roles];
-    return $this->roles()->whereIn('slug', $roles)->exists();
+    public function roles(): BelongsToMany
+{
+    return $this->belongsToMany(Role::class, 'user_role','user_id', 'role_id');
 }
-
-public function hasPermission(string $permission): bool {
-    return $this->roles()
-        ->whereHas('permissions', fn($q) => $q->where('slug', $permission))
-        ->exists();
+public function profiles()
+{
+    return $this->hasOne(Profiles::class);
 }
-
-public function datacpd() { return $this->hasOne(\App\Models\Profiles::class); }
+    // Cek role
+  public function hasRole(string $role): bool
+{
+    return $this->roles()->where('slug', $role)->exists();
+}
 
 }

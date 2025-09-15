@@ -32,38 +32,39 @@
         </div>
       </div>
 
-      <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+<header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+  <div class="container">
+    <div class="row align-items-center"> 
+      
+      <!-- Logo -->
+      <div class="col-3 d-flex align-items-center">
+        <h1 class="my-0 site-logo">
+          <a href="/" class="text-black h4 mb-0">SMK <br/>EXAMPLE</a>
+        </h1>
+      </div>
 
-        <div class="container">
-          <div class="row align-items-center position-relative">
+      <!-- Navbar -->
+      <div class="col-9 d-flex justify-content-end">
+        <nav class="site-navigation" role="navigation">
+          <ul class="site-menu main-menu d-none d-lg-block">
+            <li><a href="{{ route('info') }}" class="nav-link">Informasi PPDB</a></li>
+            <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>                
+            <li><a href="{{ route('jalurpendaftaran') }}" class="nav-link">Daftar</a></li>
+            <li class="has-children">
+              <a href="#about-section" class="nav-link">About Us</a>
+              <ul class="dropdown arrow-top">
+                <li><a href="{{route('jurusan')}}" class="nav-link">Jurusan</a></li>
+                <li><a href="{{route('about')}}" class="nav-link">Tentang Sekolah</a></li>
+                <li><a href="{{route('faq')}}" class="nav-link">FAQ</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-            <div class="col-12">
-              <nav class="site-navigation text-right ml-auto " role="navigation">
-
-                <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                  <li><a href="#home-section" class="nav-link">Informasi PPDB</a></li>
-                  <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>                
-                  <li><a href="{{ route('daftar') }}" class="nav-link">Daftar</a></li>
-                  <li class="has-children">
-                    <a href="#about-section" class="nav-link">About Us</a>
-                    <ul class="dropdown arrow-top">
-                      <li><a href="#team-section" class="nav-link">Jurusan</a></li>
-                      <li><a href="#pricing-section" class="nav-link">Tentang Sekolah</a></li>
-                      <li><a href="#faq-section" class="nav-link">FAQ</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#contact-section" class="nav-link">Contact</a></li>
-                </ul>
-              </nav>
-
-            </div>
-
-            <div class="toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-          </div>
-        </div>
-
-      </header>
+    </div>
+  </div>
+</header>
 
     <div class="hero" style="background-image: url('images/hero_1.jpg');"></div>
   
