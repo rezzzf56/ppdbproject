@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Profilesadmin;
 
 class User extends Authenticatable
 {
@@ -59,5 +60,8 @@ public function profiles()
 {
     return $this->roles()->where('slug', $role)->exists();
 }
-
+public function profilesadmin()
+{
+    return $this->hasOne(Profilesadmin::class,'user_id','id');
+}
 }

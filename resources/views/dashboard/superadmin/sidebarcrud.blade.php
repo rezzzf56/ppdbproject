@@ -1,6 +1,6 @@
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link text-decoration-none">
+            <a href="" class="app-brand-link text-decoration-none">
               <span class="app-brand-text demo menu-text fw-bold">SuperAdmin</span>
             </a>
 
@@ -15,29 +15,17 @@
             <!-- Dashboards -->
             <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle text-decoration-none">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                <div data-i18n="Dashboards">Kelola Admin</div>
-                <div class="badge bg-danger rounded-pill ms-auto">5</div>
+                <div>Kelola Admin</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="{{ route('superadmin.create') }}" class="menu-link text-decoration-none">
-                    <div data-i18n="Analytics">Tambah Admin</div>
-                  </a>
-                </li>
-                <li class="menu-item active">
-                  <a href="dashboards-crm.html" class="menu-link">
-                    <div data-i18n="CRM">Buat akun Admin</div>
+                    <div>Tambah Admin</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="app-ecommerce-dashboard.html" class="menu-link">
-                    <div data-i18n="eCommerce">Lihat Admin</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="app-logistics-dashboard.html" class="menu-link">
-                    <div data-i18n="Logistics">Lihat detail Admin</div>
+                  <a href="{{ route('superadmin.showall') }}" class="menu-link">
+                    <div>Lihat Admin</div>
                   </a>
                 </li>
               </ul>

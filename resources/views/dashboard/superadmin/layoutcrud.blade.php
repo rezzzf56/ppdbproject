@@ -46,6 +46,8 @@
     <link rel="stylesheet" href="{{asset('assetcrud/assets/vendor/libs/typeahead-js/typeahead.css')}}" />
     <link rel="stylesheet" href="{{asset('assetcrud/assets/vendor/libs/apex-charts/apex-charts.css')}}" />
 
+     <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
+
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -71,7 +73,6 @@
         <div class="layout-page">
           <!-- Navbar -->
 
-      @include('dashboard.superadmin.navbarcrud')
           <!-- / Navbar -->
 
           <!-- Content wrapper -->
@@ -115,6 +116,8 @@
     <!-- Vendors JS -->
     <script src="{{asset('assetcrud/assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
 
+    <!-- Main JS -->
+    <script src="{{asset('assetcrud/assets/js/main.js')}}"></script>
 
-  </body>
+      </body>
 </html>

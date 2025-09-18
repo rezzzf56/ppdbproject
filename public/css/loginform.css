@@ -206,26 +206,32 @@ body.ld {
 }
 
 /* Submit Button */
-.submit-btn {
-    width: 100%;
-    background: #635BFF;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    padding: 14px 20px;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 500;
-    position: relative;
-    margin-bottom: 24px;
-    transition: all 0.2s ease;
-    overflow: hidden;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+ .button-row {
+      display: flex;
+      justify-content: space-between; /* bikin sejajar kiri-kanan */
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .submit-btn {
+      flex: 1;                 /* biar proporsional */
+      height: 48px;            /* sama tinggi dengan input */
+      padding: 0 16px;
+      background: #635BFF;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
 
 .submit-btn:hover {
     background: #4c44d4;

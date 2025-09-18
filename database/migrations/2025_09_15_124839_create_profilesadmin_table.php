@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama',64)->nullable();
             $table->string('email',64)->nullable();
-         $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('user_id')->nullable()->unique();
+            $table->foreign('user_id')
+          ->references('id')->on('users')
+          ->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('profilesadmin');
     }
 };

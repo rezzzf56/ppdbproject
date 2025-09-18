@@ -10,7 +10,8 @@ a:hover {
 }
 
 .hero {
-  height: 100vh;
+max-height: 200px; /* biar tidak terlalu kecil */
+  height: auto;
   width: 100%;
   background-size: cover;
   background-position: center center;
@@ -19,11 +20,11 @@ a:hover {
 
 .top-bar {
   padding: .5rem 0;
-  background: #eee;
+  background: #e1f1d1;
 }
 
 .top-bar a {
-  color: #666666;
+  color: #5f714b;
 }
 
 .site-navbar {
