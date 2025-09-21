@@ -5,28 +5,29 @@
             <h3>Tambah Admin</h3>
         </div>
         <div class="card-body">
-            <form action={{ route('superadmincreate.store') }} method="POST">
+            <form action={{ route('superadminsaveacc.store') }} method="POST">
                 @csrf
                 <div class="row my-6">
-                    <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
+                    <label class="col-sm-2 col-form-label" for="basic-default-name">Email</label>
                     <div class="col-sm-10">
-                        <input type="text" name="nama" class="form-control" id="basic-default-name"
-                            placeholder="Isi nama admin" />
-                            @error('nama')
-                           <span class="text-danger"> {{ $message }} </span>
+                        <input type="text" name="email" class="form-control" id="basic-default-name"
+                            placeholder="Isi email" />
+                            @error('email')
+                            <span class="text-danger">{{ $message }}</span>
                             @enderror
                     </div>
                 </div>
                 <div class="row mb-6">
-                    <label class="col-sm-2 col-form-label" for="basic-default-company">Email</label>
+                    <label class="col-sm-2 col-form-label" for="basic-default-company">Password</label>
                     <div class="col-sm-10">
-                        <input type="text" name="email" class="form-control" id="basic-default-company"
-                            placeholder="Email" />
-                              @error('email')
-                           <span class="text-danger"> {{ $message }} </span>
+                        <input type="text" name="password" class="form-control" id="basic-default-company"
+                            placeholder="password" />
+                            @error('password')
+                            <span class="text-danger">{{ $message }}</span>
                             @enderror
                     </div>
-                </div>
+                </div> 
+                <input type="hidden" name="role" value="admin">
                 <div class="row justify-content-end">
                     <div class="col-sm-10">
                         <button type="submit" class="btn btn-primary">Send</button>

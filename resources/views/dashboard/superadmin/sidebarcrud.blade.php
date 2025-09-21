@@ -28,6 +28,16 @@
                     <div>Lihat Admin</div>
                   </a>
                 </li>
+                      <li class="menu-item">
+                  <a href="{{ route('superadmin.createacc') }}" class="menu-link">
+                    <div>Buat Akun Admin</div>
+                  </a>
+                </li>
+                      <li class="menu-item">
+                  <a href="{{ route('superadmin.showacc') }}" class="menu-link">
+                    <div>Lihat akun</div>
+                  </a>
+                </li>
               </ul>
             </li>
 

@@ -21,12 +21,6 @@
                     <td>
                           @if($a->user_id) 
             <a href="{{ route('superadmin.detail', $a->id) }}" class="btn btn-secondary">Detail</a>
-             <form action="{{ route('superadmin.unlink', $a->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin memutuskan kaitan akun?')">
-        @csrf
-        <button type="submit" class="btn btn-warning">Putuskan Kaitan</button>
-    </form>
-                <a href="{{ route('superadmin.editprofilesadm', $a->id) }}" class="btn btn-primary">Edit</a>
-
         @else 
             <a href="{{ route('superadmin.link', $a->id) }}" class="btn btn-primary">Hubungkan Akun</a>
         @endif

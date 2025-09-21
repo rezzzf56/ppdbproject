@@ -5,7 +5,7 @@
                     <thead>
                       <tr>
                         <th>Data</th>
-                        <th class="text-center">Icon</th>
+                        <th class="text-center"></th>
                         <th>Details</th>
                       </tr>
                     </thead>
@@ -17,7 +17,7 @@
                         </td>
             
                             <td>
-                              {{ $users->profilesadmin->nama }}
+                              {{ $profilesadmin->nama }}
                         </td>
                       </tr>
                       <tr>
@@ -25,27 +25,28 @@
                         <td class="text-center">
                             :
                         </td>
-                        <td>{{$users->profilesadmin->email}}</td>
+                        <td>{{$profilesadmin->email}}</td>
                       </tr>
                       <tr>
                         <td>Email Login</td>
                         <td class="text-center">
                          :
                         </td>
-                        <td>@if($users->email){{$users->email}}
-                        @else Belum terhubung
-                        @endif</td>
-                      </tr>
-                      <tr>
-                        <td>Password login</td>
-                        <td class="text-center">
-                          <i class="tf-icons ti ti-x ti-sm"></i>
+                        <td>{{$profilesadmin->user->email}}
                         </td>
-                        <td>@if($users->password){{$users->password}}
-                        @else Belum terhubung
-                        @endif</td>
-                      </tr>
+                        </tr>
+                        <tr>
+                        <td>Password</td>
+                        <td class="text-center">
+                        :
+                        </td>
+                        <td>{{$profilesadmin->user->password}}
+                        </td>
+                        </tr>
                     </tbody>
                   </table>
+                 <a href="{{ route('superadmin.showall') }}" class="btn btn-secondary mx-3">kembali</a>
+                    </div>
+                  </div>
                 </div>
 @endsection

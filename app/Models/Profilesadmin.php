@@ -9,7 +9,8 @@ class Profilesadmin extends Model
     protected $table = 'profilesadmin';
     protected $fillable = [
         'nama',
-        'email'
+        'email',
+        'user_id'
     ];
 public function user()
 {

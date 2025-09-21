@@ -4,24 +4,25 @@
 
     <div class="card mb-6">
         <div class="card-header d-flex align-items-center justify-content-between">
-            <h3>Hubungkan akun admin</h3>
+            <h3>Edit Admin</h3>
         </div>
         <div class="card-body">
-            <form action="{{ route('superadmin.storelink') }}" method="POST">
+            <form action="{{ route('superadmin.updateprofilesadm') }}" method="POST">
                 @csrf
+                @method('PUT')
                 <input type="hidden" name="id" value="{{ $profilesadmin->id }}">
                 <div class="row my-6">
                     <label class="col-sm-2 col-form-label" for="basic-default-name">Name</label>
                     <div class="col-sm-10">
                         <input type="text" name="nama" class="form-control" id="basic-default-name"
-                            placeholder="Isi nama admin" value="{{ $profilesadmin->nama }}" readonly />
+                            placeholder="Isi nama admin" value="{{ $profilesadmin->nama }}" />
                     </div>
                 </div>
                 <div class="row mb-6">
                     <label class="col-sm-2 col-form-label" for="basic-default-company">Email</label>
                     <div class="col-sm-10">
                         <input type="text" name="email" class="form-control" id="basic-default-company"
-                            placeholder="Email" value="{{ $profilesadmin->email }}" readonly />
+                            placeholder="Email" value="{{ $profilesadmin->email }}" />
                     </div>
                 </div>
                   <div class="row mb-6">
@@ -30,7 +31,7 @@
                           <select name="user_id" id="user_id" class="form-control" required>
                    <option value="" disabled>Pilih Akun</option>
             @foreach($users as $user)
-                <option value="{{ $user->id }}">
+                <option value="{{ $user->id }}" {{ $profilesadmin->user_id == $user->id ? 'selected' : '' }}>
                  {{ $user->email }}
                 </option>
             @endforeach

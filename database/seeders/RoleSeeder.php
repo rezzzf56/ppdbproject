@@ -17,20 +17,17 @@ $cpd   = Role::firstOrCreate(['slug'=>'cpd'], ['name'=>'CPD']);
 
         // Buat user contoh dengan role
         $u1 = User::firstOrCreate(['email'=>'super@ppdb.test'], [
-            'username'=>'Super Admin',
-            'password'=>Hash::make('password')
+            'password'=>Hash::make('passwordsuper')
         ]);
         $u1->roles()->syncWithoutDetaching([$super->id]);
 
         $u2 = User::firstOrCreate(['email'=>'admin@ppdb.test'], [
-            'username'=>'Admin PPDB',
-            'password'=>Hash::make('password')
+            'password'=>Hash::make('passwordadmin')
         ]);
         $u2->roles()->syncWithoutDetaching([$admin->id]);
 
         $u3 = User::firstOrCreate(['email'=>'cpd@ppdb.test'], [
-            'username'=>'Calon Peserta',
-            'password'=>Hash::make('password')
+            'password'=>Hash::make('passwordcpd')
         ]);
         $u3->roles()->syncWithoutDetaching([$cpd->id]);
         Profiles::firstOrCreate(['user_id'=>$u3->id], [

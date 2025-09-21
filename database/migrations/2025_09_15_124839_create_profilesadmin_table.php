@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('profilesadmin', function (Blueprint $table) {
             $table->id();
             $table->string('nama',64)->nullable();
-            $table->string('email',64)->nullable();
+            $table->string('email',64)->unique()->nullable();
             $table->unsignedBigInteger('user_id')->nullable()->unique();
             $table->foreign('user_id')
           ->references('id')->on('users')
