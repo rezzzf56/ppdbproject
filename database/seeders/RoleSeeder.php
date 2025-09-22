@@ -2,20 +2,17 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\{Role, Permission, User, Profiles};
+use App\Models\{Role, User, Profilescpd};
 use Illuminate\Support\Facades\Hash;
 
 class RoleSeeder extends Seeder
 {
     public function run(): void
     {
-        // Roles
        $super = Role::firstOrCreate(['slug'=>'superadmin'], ['name'=>'Super Admin']);
 $admin = Role::firstOrCreate(['slug'=>'admin'], ['name'=>'Admin']);
 $cpd   = Role::firstOrCreate(['slug'=>'cpd'], ['name'=>'CPD']);
-        // Mapping role -> permission
 
-        // Buat user contoh dengan role
         $u1 = User::firstOrCreate(['email'=>'super@ppdb.test'], [
             'password'=>Hash::make('passwordsuper')
         ]);
@@ -30,8 +27,5 @@ $cpd   = Role::firstOrCreate(['slug'=>'cpd'], ['name'=>'CPD']);
             'password'=>Hash::make('passwordcpd')
         ]);
         $u3->roles()->syncWithoutDetaching([$cpd->id]);
-        Profiles::firstOrCreate(['user_id'=>$u3->id], [
-            'nama_lengkap'=>'Calon Peserta Didik',
-        ]);
     }
 }

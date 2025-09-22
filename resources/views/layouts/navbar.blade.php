@@ -7,7 +7,7 @@
         <div class="site-mobile-menu-body"></div>
     </div>
 
-
+<div class="header-fixed">
     <div class="top-bar">
         <div class="container">
             <div class="row">
@@ -43,7 +43,7 @@
                 <!-- Logo -->
                 <div class="col-3 d-flex align-items-center">
                     <h1 class="my-0 site-logo">
-                        <p class="text-black h4 mb-0">SMK <br />EXAMPLE</p>
+                        <p class="text-black h4 mb-0">SMK EXAMPLE</p>
                     </h1>
                 </div>
 
@@ -53,7 +53,7 @@
                         <ul class="site-menu main-menu d-none d-lg-block">
                             <li><a href="{{ route('info') }}" class="nav-link">Informasi PPDB</a></li>
                             <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>
-                            <li><a href="{{ route('jalurpendaftaran') }}" class="nav-link">Daftar</a></li>
+                            <li><a href="{{ route('selectpath') }}" class="nav-link">Daftar</a></li>
                             <li class="has-children">
                                 <a href="#about-section" class="nav-link">About Us</a>
                                 <ul class="dropdown arrow-top">
@@ -69,5 +69,5 @@
             </div>
         </div>
     </header>
-
+</div>
     <div class="hero" style="background-image: url('images/hero_1.jpg');"></div>

@@ -1,5 +1,6 @@
 @extends('dashboard.superadmin.layoutcrud')
 @section('content')
+    <div class="container-fluid mt-5">
        <div class="collapse show">
                   <table class="table table-hover">
                     <thead>
@@ -49,4 +50,5 @@
                     </div>
                   </div>
                 </div>
+              </div>
 @endsection

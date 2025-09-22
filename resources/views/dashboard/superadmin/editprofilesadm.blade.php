@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 
-    <div class="card mb-6">
+    <div class="card mt-5">
         <div class="card-header d-flex align-items-center justify-content-between">
             <h3>Edit Admin</h3>
         </div>

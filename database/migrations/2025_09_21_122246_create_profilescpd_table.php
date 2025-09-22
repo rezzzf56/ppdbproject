@@ -4,12 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
     public function up(): void
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('profilescpd', function (Blueprint $table) {
             $table->id();
-            $table->enum('jalur_pendaftaran', ['afirmasi', 'prestasi', 'zonasi'])->nullable();
             $table->string('nik',16)->nullable();
             $table->string('nis',16)->nullable();
             $table->string('nama_lengkap',64)->nullable();
@@ -23,16 +26,18 @@ return new class extends Migration {
             $table->string('pekerjaanorgtua',16)->nullable();
             $table->enum('pilihansatu', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
             $table->enum('pilihandua', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
-            $table->string('dokumen_pendukung')->nullable();
+            $table->enum('jalur_pendaftaran', ['afirmasi', 'prestasi', 'zonasi'])->nullable();
             $table->enum('status', ['pending', 'active', 'rejected'])->default('pending');
-$table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
-
-;
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
+
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('profilescpd');
     }
 };

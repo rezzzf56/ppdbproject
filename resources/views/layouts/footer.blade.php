@@ -1,4 +1,3 @@
-    
     <footer class="footer-20192">
       <div class="site-section">
         <div class="container">
@@ -42,7 +41,6 @@
                 <li><a class="footer" href="#"><span class="icon-paper-plane"></span></a></li>
               </ul>
             </div>
-            
           </div>
         </div>
       </div>

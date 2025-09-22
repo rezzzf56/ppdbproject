@@ -2,58 +2,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Profiles;
+use App\Models\profilescpd;
 
 class DaftarController extends Controller
 {
-    public function jalurpendaftaran()
-    {
+    public function selectpath(){
         return view('daftar.pilih-jalur');
     }
-    public function simpanJalur(Request $request)
-    {
-        $request->validate([
-            'jalur_pendaftaran' => 'required|in:afirmasi,prestasi,zonasi',
-        ]);
-
-        $profile = Profiles::create([
-            'jalur_pendaftaran' => $request->jalur_pendaftaran,
-            'status' => 'pending',
-        ]);
-
-   return redirect()->route('daftar.form', [
-    'id' => $profile->id,
-    'jalur' => $profile->jalur_pendaftaran
-]);
+    public function savepath(Request $request){
+      $regpath = $request->jalur_pendaftaran;
+      session(['jalur_pendaftaran'=>'$jalur']);
+      $routes = ['afirmasi' => 'form.afirmasi',
+                  'zonasi' => 'form.zonasi',
+                  'prestasi' => 'form.prestasi'
+    ];
+    if(array_key_exists($regpath, $routes)){
+        return redirect()->route($routes[$regpath]);
     }
+}
+    public function zonasi(){
 
-    public function form($id, $jalur)
-    {
-        $profile = Profiles::findOrFail($id);
-        return view("daftar.daftar-$jalur", compact('profile','jalur'));
-    }
+    return view('daftar.daftar-zonasi');
 
-    public function simpanForm(Request $request, $id, $jalur)
-    {
-        $data = $request->validate([
-            'nik' => 'required',
-            'nis' => 'required',
-            'nama_lengkap' => 'required',
-            'jenis_kelamin' => 'required',
-            'tanggal_lahir' => 'required|date',
-            'asal_sekolah' => 'required',
-            'alamat' => 'required',
-            'nomor_telepon' => 'required',
-            'email' => 'required|email',
-            'namaorgtua' => 'required',
-            'pekerjaanorgtua' => 'required',
-            'pilihansatu' => 'required',
-            'pilihandua' => 'required'
-        ]);
-
-        $profile = Profiles::findOrFail($id);
-        $profile->update($data);
-
-        return view('daftar.selesai');
     }
 }

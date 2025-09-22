@@ -8,7 +8,7 @@
         <h5 class="card-title mb-3">Dashboard Superadmin</h5>
         <p class="card-text">
           Anda saat ini berada di halaman <strong>Dashboard Superadmin</strong>.  
-          Gunakan menu di samping untuk mengelola data sesuai kebutuhan.
+  
         </p>
       </div>
     </div>

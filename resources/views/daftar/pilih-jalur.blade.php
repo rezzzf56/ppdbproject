@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body>
+@extends('layouts.app')
+@section('content')
     <div class="container mt-5">
       <h1 class="text-center mb-5">Pilih Jalur Pendaftaran</h1>
   <div class="row g-4">
@@ -19,7 +12,7 @@
           <p class="card-text">
             Pendaftaran berdasarkan jarak tempat tinggal ke sekolah.
           </p>
-         <form action="{{ route('simpanJalur') }}" method="POST" class="d-inline">
+         <form action="{{ route('savepath') }}" method="POST" class="d-inline">
     @csrf
     <input type="hidden" name="jalur_pendaftaran" value="zonasi">
     <button type="submit" class="btn btn-primary">Pilih Jalur</button>
@@ -37,7 +30,7 @@
           <p class="card-text">
             Pendaftaran khusus untuk siswa dari keluarga kurang mampu.
           </p>
-        <form action="{{ route('simpanJalur') }}" method="POST" class="d-inline">
+        <form action="{{ route('savepath') }}" method="POST" class="d-inline">
     @csrf
     <input type="hidden" name="jalur_pendaftaran" value="prestasi">
     <button type="submit" class="btn btn-secondary">Pilih Jalur</button>
@@ -55,18 +48,22 @@
           <p class="card-text">
             Pendaftaran berdasarkan prestasi akademik maupun non-akademik.
           </p>
-         <form action="{{ route('simpanJalur') }}" method="POST" class="d-inline">
+         <form action="{{ route('savepath') }}" method="POST" class="d-inline">
     @csrf
     <input type="hidden" name="jalur_pendaftaran" value="afirmasi">
     <button type="submit" class="btn btn-warning">Pilih Jalur</button>
+         </div>
 </form>
+
 
         </div>
       </div>
     </div>
-
+<div class="row">
+          <a href="{{ route('home') }}" class="submit-btn" style="background-color: red; color: white; border: none;" >
+            <span class="btn-text">Kembali</span>
+          </a>
+</div>
   </div>
 </div>
-
-</body>
-</html>
+@endsection

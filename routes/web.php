@@ -12,10 +12,11 @@ Route::get('/jurusan', [App\Http\Controllers\HalamanController::class, 'jurusan'
 Route::get('/faq', [App\Http\Controllers\HalamanController::class, 'faq'])->name('faq');
 Route::get('/about', [App\Http\Controllers\HalamanController::class, 'about'])->name('about');
 /* daftar */
-Route::get('/daftar', [DaftarController::class, 'jalurpendaftaran'])->name('jalurpendaftaran');
-Route::post('/pendaftaran/jalurpendaftaran', [DaftarController::class, 'simpanJalur'])->name('simpanJalur');
-Route::get('/pendaftaran/{id}/{jalur}', [DaftarController::class, 'form'])->name('daftar.form');
-Route::post('/pendaftaran/{id}/{jalur}', [DaftarController::class, 'simpanForm'])->name('daftar.simpanForm');
+Route::get('/daftar', [DaftarController::class, 'selectpath'])->name('selectpath');
+Route::post('/savepath', [DaftarController::class, 'savepath'])->name('savepath');
+Route::get('/daftar/zonasi', [DaftarController::class, 'zonasi'])->name('form.zonasi');
+Route::get('/daftar/prestasi', [DaftarController::class, 'prestasi'])->name('form.prestasi');
+Route::get('/daftar/afirmasi', [DaftarController::class, 'afirmasi'])->name('form.afirmasi');
 Route::middleware(['auth'])->group(function () {
     Route::get('/superadmin/dashboard', function () {
         return view('dashboard.superadmin.superadmin');

@@ -1,6 +1,6 @@
 @extends('dashboard.superadmin.layoutcrud')
 @section('content')
-                <div class="card-body">
+                <div class="card-body mt-5 mx-7">
                   <div class="table-responsive text-nowrap">
                     <table class="table table-bordered">
                       <thead>

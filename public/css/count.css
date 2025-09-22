@@ -1,0 +1,22 @@
+.counter-section {
+  position: relative;
+  background: url("{{ asset('images/skirk1.jpg') }}") ;
+  color: #fff;
+}
+
+.counter-section .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 50, 0.6); /* efek gelap */
+}
+
+.counter-section .container {
+  position: relative;
+  z-index: 2; /* supaya teks di atas overlay */
+}
+
+.counter {
+  font-size: 3rem;
+  font-weight: bold;
+}

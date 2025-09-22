@@ -17,10 +17,18 @@ max-height: 200px; /* biar tidak terlalu kecil */
   background-position: center center;
   background-repeat: no-repeat;
 }
-
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  background: #fff; /* biar solid, nggak transparan */
+  box-shadow: 0 2px 5px rgba(0,0,0,.1);
+}
 .top-bar {
   padding: .5rem 0;
-  background: #e1f1d1;
+  background: #440c60;
 }
 
 .top-bar a {
@@ -28,11 +36,9 @@ max-height: 200px; /* biar tidak terlalu kecil */
 }
 
 .site-navbar {
-  margin-bottom: 0px;
-  z-index: 1999;
-  position: relative;
-  width: 100%;
-  padding: 1rem;
+  background: #fff; /* biar nggak transparan */
+  box-shadow: 0 2px 5px rgba(0,0,0,.1);
+  padding: 15px 20px;
 }
 
 @media (max-width: 991.98px) {

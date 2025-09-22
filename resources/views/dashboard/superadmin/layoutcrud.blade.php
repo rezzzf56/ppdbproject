@@ -23,6 +23,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
+
     <link
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
       rel="stylesheet" />
@@ -47,6 +50,8 @@
     <link rel="stylesheet" href="{{asset('assetcrud/assets/vendor/libs/apex-charts/apex-charts.css')}}" />
 
      <link rel="stylesheet" href="{{asset('css/navbar.css')}}">
+         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
 
     <!-- Page CSS -->
 
@@ -61,41 +66,18 @@
   </head>
 
   <body>
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
-        <!-- Menu -->
-
-     @include('dashboard.superadmin.sidebarcrud')
-        <!-- / Menu -->
-
-        <!-- Layout container -->
-        <div class="layout-page">
-          <!-- Navbar -->
-
-          <!-- / Navbar -->
-
-          <!-- Content wrapper -->
-          <div class="content-wrapper pt-4 ps-4">
-            <!-- Content -->
-            @yield('content')
-            </div>
-            <!-- / Content -->
-
-
-            <div class="content-backdrop fade"></div>
-          </div>
-          <!-- Content wrapper -->
-        </div>
-        <!-- / Layout page -->
-      </div>
-
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
-
-      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-      <div class="drag-target"></div>
+   @include('dashboard.superadmin.navbarcrud')
+      <!-- navbar -->
+  
+<!-- content -->
+  
+    <div class="content d-flex align-items-center">
+        @yield('content')
     </div>
+<!-- content -->
+<!-- footer-->
+  @include('layouts.footer')
+<!--  -->
     <!-- / Layout wrapper -->
 
     <!-- Core JS -->

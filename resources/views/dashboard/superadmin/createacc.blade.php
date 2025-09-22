@@ -1,10 +1,12 @@
 @extends('dashboard.superadmin.layoutcrud')
 @section('content')
-    <div class="card mb-6">
-        <div class="card-header d-flex align-items-center justify-content-between">
-            <h3>Tambah Admin</h3>
-        </div>
-        <div class="card-body">
+    <div class="container-fluid mt-5">
+        <div class="card w-100">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">Tambah admin</h5>
+                <small class="text-muted float-end"></small>
+            </div>
+            <div class="card-body">
             <form action={{ route('superadminsaveacc.store') }} method="POST">
                 @csrf
                 <div class="row my-6">
@@ -35,6 +37,8 @@
                     </div>
                 </div>
             </form>
+            </div>
         </div>
+    </div>
     </div>
 @endsection

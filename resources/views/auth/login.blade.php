@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" class="ld">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern SaaS Login</title>
-    <link rel="stylesheet" href="{{asset('css/loginform.css')}}">
-</head>
-<body class="ld">
-    <div class="login-container">
+@extends('layouts.app')
+@section('content')
+<div class="content d-flex justify-content-center align-items-center min-vh-100">
+    <div class="login-container ">
                    <form action="{{ route('login.store') }}" method="POST" id="loginForm">
                     @csrf
                     <div class="login-card">
@@ -71,7 +65,8 @@
             </div>
           </a>
         </div>
-      </div>                    </form>
+      </div>                
+        </form>
         
               </div>
       
@@ -88,7 +83,5 @@
             </div>
         </div>
     </div>
+  </div>
 
-    <script src="{{asset('js/form-utils.js')}}"></script>
-</body>
-</html>
