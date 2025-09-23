@@ -9,6 +9,12 @@ html, body {
   flex: 1; 
   margin-bottom: 50px;                
 }
+.counter-section {
+  display: block;     
+  width: 100%;      
+  clear: both;         
+  margin-top: 50px;    
+}
 
 body {
   display: flex;
@@ -51,7 +57,7 @@ a:hover {
 }
 
 .footer-20192 h3 {
-  font-size: 16px;
+  font-size: 24px;
   margin-bottom: 10px;
   margin-top: 0;
   line-height: 1.5;
@@ -64,7 +70,7 @@ a:hover {
 }
 
 .footer-20192 .links li a {
-  color: #666873;
+  color: #ffffff;
 }
 
 .footer-20192 .links li a:hover {

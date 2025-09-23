@@ -7,11 +7,20 @@
         <div class="site-mobile-menu-body"></div>
     </div>
 
+ <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
 <div class="header-fixed">
     <div class="top-bar">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-6">
                     <a href="#" class=""><span class="mr-2  icon-envelope-open-o"></span> <span
                             class="d-none d-md-inline-block">Sekolah</span></a>
                     <span class="mx-md-2 d-inline-block"></span>
@@ -20,7 +29,6 @@
 
 
                     <div class="float-right">
-
                         <a href="#" class=""><span class="mr-2  icon-twitter"></span> <span
                                 class="d-none d-md-inline-block">Twitter</span></a>
                         <span class="mx-md-2 d-inline-block"></span>
@@ -35,7 +43,6 @@
 
         </div>
     </div>
-
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
         <div class="container">
             <div class="row align-items-center">

@@ -63,6 +63,7 @@
     <div class="content d-flex align-items-center">
         @yield('content')
     </div>
+    @yield('section-counter')
 <!-- content -->
 <!-- footer-->
   @include('layouts.footer')

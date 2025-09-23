@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('content')
+@section('section-counter')
+<div class="body-ld">
 <div class="content d-flex justify-content-center align-items-center min-vh-100">
     <div class="login-container ">
                    <form action="{{ route('login.store') }}" method="POST" id="loginForm">
@@ -84,4 +85,6 @@
         </div>
     </div>
   </div>
+  </div>
+@endsection
 
