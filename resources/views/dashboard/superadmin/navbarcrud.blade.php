@@ -17,32 +17,27 @@
     </div>
 
 <div class="header-fixed">
-    <div class="top-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <a href="#" class=""><span class="mr-2  icon-envelope-open-o"></span> <span
-                            class="d-none d-md-inline-block">Sekolah</span></a>
-                    <span class="mx-md-2 d-inline-block"></span>
-                    <a href="#" class=""><span class="mr-2  icon-phone"></span> <span
-                            class="d-none d-md-inline-block">1+ (234) 5678 9101</span></a>
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+      
+      <!-- Kiri -->
+      <div>
+        <a href="#"><span class="mr-2 icon-envelope-open-o"></span> Sekolah</a>
+        <span class="mx-md-2 d-inline-block"></span>
+        <a href="#"><span class="mr-2 icon-phone"></span> 1+ (234) 5678 9101</a>
+      </div>
 
+      <!-- Kanan -->
+      <div>
+        <a href="#"><span class="mr-2 icon-twitter"></span> Twitter</a>
+        <span class="mx-md-2 d-inline-block"></span>
+        <a href="#"><span class="mr-2 icon-facebook"></span> Facebook</a>
+      </div>
 
-                    <div class="float-right">
-                        <a href="#" class=""><span class="mr-2  icon-twitter"></span> <span
-                                class="d-none d-md-inline-block">Twitter</span></a>
-                        <span class="mx-md-2 d-inline-block"></span>
-                        <a href="#" class=""><span class="mr-2  icon-facebook"></span> <span
-                                class="d-none d-md-inline-block">Facebook</span></a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
     </div>
+  </div>
+</div>
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
         <div class="container">
             <div class="row align-items-center">
@@ -61,7 +56,7 @@
                             <li><a href="{{ route('superadmin.create') }}" class="nav-link">Tambah admin</a></li>
                             <li><a href="{{ route('superadmin.showall') }}"  class="nav-link">Lihat admin</a></li>
                             <li> <a href="{{ route('superadmin.createacc') }}" class="nav-link">Buat Akun admin</a></li>
-                            <li>  <a href="{{ route('superadmin.showacc') }}"  class="nav-link">Buat Akun admin</a></li>
+                            <li>  <a href="{{ route('superadmin.showacc') }}"  class="nav-link">Lihat Akun admin</a></li>
                         </ul>
                     </nav>
                 </div>

@@ -59,11 +59,13 @@
         </div>
       </div>
     </div>
-<div class="row">
-          <a href="{{ route('home') }}" class="submit-btn" style="background-color: red; color: white; border: none;" >
-            <span class="btn-text">Kembali</span>
-          </a>
+<div class="mt-4 d-flex justify-content-start">
+  <a href="{{ route('home') }}" class="btn btn-danger">
+    Kembali
+  </a>
 </div>
+
+
   </div>
 </div>
 @endsection
