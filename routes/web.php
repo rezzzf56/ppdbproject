@@ -17,6 +17,8 @@ Route::post('/savepath', [DaftarController::class, 'savepath'])->name('savepath'
 Route::get('/daftar/zonasi', [DaftarController::class, 'zonasi'])->name('form.zonasi');
 Route::get('/daftar/prestasi', [DaftarController::class, 'prestasi'])->name('form.prestasi');
 Route::get('/daftar/afirmasi', [DaftarController::class, 'afirmasi'])->name('form.afirmasi');
+Route::get('daftar/success', [DaftarController::class, 'successreg'])->name('success.reg');
+Route::post('/daftar/savereg', [DaftarController::class, 'storereg'])->name('form.storereg');
 Route::middleware(['auth'])->group(function () {
     Route::get('/superadmin/dashboard', function () {
         return view('dashboard.superadmin.superadmin');
@@ -34,6 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/superadmin/edit/{id}', [App\Http\Controllers\Superadmin\SuperadminController::class, 'editprofilesadm'])->name('superadmin.editprofilesadm');
     Route::put('/superadmin/update', [App\Http\Controllers\Superadmin\SuperadminController::class, 'updateprofilesadm'])->name('superadmin.updateprofilesadm');
     Route::get('/superadmin/showacc', [App\Http\Controllers\Superadmin\SuperadminController::class, 'showacc'])->name('superadmin.showacc');
+    Route::delete('/superadmin/delete/{id}', [App\Http\Controllers\Superadmin\SuperadminController::class, 'deleteprofilesadmin'])->name('superadmin.deleteprofilesadmin');
 
     // Admin
     Route::get('/admin/dashboard', function () {

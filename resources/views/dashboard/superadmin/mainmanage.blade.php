@@ -29,6 +29,12 @@
 
         @else 
             <a href="{{ route('superadmin.link', $a->id) }}" class="btn btn-primary">Hubungkan Akun</a>
+                <form action="{{ route('superadmin.deleteprofilesadmin', $a->id) }}" method="POST" style="display:inline-block;">
+                          @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Yakin mau hapus data ini?')">Hapus Admin</button>
+                        </form> 
         @endif
                       </tr>
                     @endforeach

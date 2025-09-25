@@ -39,11 +39,6 @@ class SuperadminController extends Controller
 
         return redirect()->route('superadmin.showall');
     }
-
-    public function update() {}
-
-    public function delete() {}
-
     public function showall()
     {
         $superadmin = Profilesadmin::orderBy('created_at', 'asc')->get();
@@ -134,5 +129,14 @@ public function updateprofilesadm(Request $request){
 public function showacc(){
      $users = User::with('roles')->whereHas('roles', fn ($q) => $q->where('slug', 'admin'))->orderBy('created_at','asc')->get();
             return view('dashboard.superadmin.showacc', compact('users'));
+}
+public function deleteprofilesadmin(string $id){
+    {
+        $admin = Profilesadmin::find($id);
+        if ($admin) {
+            $admin->delete();
+        }
+        return redirect()->route('superadmin.showall');
+    }
 }
 }
