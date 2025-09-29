@@ -32,7 +32,7 @@
                 <div class="row justify-content-end">
                     <div class="col-sm-10">
                         <button type="submit" class="btn btn-primary">Send</button>
-                        <a href="{{ route('super.dashboard') }}" class="btn btn-secondary">kembali</a>
+                        <a href="{{ route('superadmin.showall') }}" class="btn btn-secondary">kembali</a>
                     </div>
                 </div>
             </form>

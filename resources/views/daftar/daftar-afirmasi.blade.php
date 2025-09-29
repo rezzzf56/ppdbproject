@@ -1,151 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
-
-    <!-- Icons font CSS-->
-    <link href="{{asset('css/vendorreg/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('css/vendorreg/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Vendor CSS-->
-    <link href="{{asset('css/vendorreg/select2/select2.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('css/vendorreg/datepicker/daterangepicker.css')}}" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="{{asset('css/mainreg.css')}}" rel="stylesheet" media="all">
-</head>
-
-<body>
-    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-        <div class="wrapper wrapper--w680">
-            <div class="card card-4">
-                <div class="card-body">
-                    <h2 class="title">Registration Form</h2>
-                    <form method="POST">
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">NIK</label>
-                                    <input class="input--style-4" type="text" name="NIK"/>
-                                </div>
-                            </div>
-                            <div class="row row-space">
-                             <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">NIS</label>
-                                    <input class="input--style-4" type="text" name="NIS"/>
-                                </div>
-                             </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Nama Lengkap</label>
-                                          <input class="input--style-4" type="text" name="Nama_lengkap"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Gender</label>
-                                    <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">Female
-                                            <input type="radio" name="gender">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Tanggal Lahir</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="tanggal_lahir">
-                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                    </div>
-                                </div>
-                            </div>
-<div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Asal Sekolah</label>
-                                          <input class="input--style-4" type="text" name="asal_sekolah"/>
-                                    </div>
-                                </div>
-                            </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Phone Number</label>
-                                    <input class="input--style-4" type="text" name="phone">
-                                </div>
-                            </div>
-                                <div class="input-group">
-                                    <label class="label">Email</label>
-                                    <input class="input--style-4" type="email" name="email">
-                                </div>
-                            </div>
+@extends('layouts.app')
+@section('content')
+    <div class="container-fluid">
+        <div class="card w-100">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">Daftar Afirmasi</h5>
+                <small class="text-muted float-end"></small>
+            </div>
+            <div class="card-body mt-2">
+                <form action="{{route('form.storereg')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row mb-3 align-items-center">
+                   <label class="col-sm-1 col-form-label text-sm-start" for="nik">NIK</label>
+                   <div class="col-sm-11">                      
+                            <input type="text" name="nik" id="nik" class="form-control"
+                                placeholder="Isi dengan NIK" />
                         </div>
-                        <div class="row row-space">
-                         <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Nama Orang tua</label>
-                                          <input class="input--style-4" type="text" name="namaorgtua"/>
-                                    </div>
-                                </div>
-                            </div>
-                    <div class="row row-space">
-                          <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Pekerjaan Orang Tua</label>
-                                          <input class="input--style-4" type="text" name="asal_sekolah"/>
-                                    </div>
-                                </div>
                     </div>
-                        <div class="input-group">
-                            <label class="label">Jurusan Pilihan</label>
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="subject">
-                                    <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option>Subject 1</option>
-                                    <option>Subject 2</option>
-                                    <option>Subject 3</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
+                    <div class="row mb-3">
+                         <label class="col-sm-1 col-form-label text-sm-start" for="nis">NIS</label>
+                   <div class="col-sm-11">   
+                            <input type="text" name="nis" id="nis" class="form-control"
+                                placeholder="Isi dengan NIS" />
                         </div>
-                        <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="nama_lengkap">Nama</label>
+                        <div class="col-sm-11">
+                            <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control"
+                                placeholder="Isi dengan nama lengkap" />
                         </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="nama">Jenis Kelamin</label>
+                        <div class="col-sm-11">
+                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" required>
+                                <option value="" disabled>Pilih Jenis Kelamin</option>
+                                <option value="L">Laki-Laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="tanggal_lahir">Tanggal Lahir</label>
+                        <div class="col-sm-11">
+                            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="alamat">Alamat</label>
+                        <div class="col-sm-11">
+                            <input type="text" name="alamat" id="alamat" class="form-control"
+                                placeholder="Isi dengan alamat" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="asal_sekolah">Asal Sekolah</label>
+                        <div class="col-sm-11">
+                            <input type="text" name="asal_sekolah" id="asal_sekolah" class="form-control"
+                                placeholder="Isi Asal Sekolah" />
+                        </div>
+                    </div>
+                    <div class="row mb-3 align-items-center">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="nomor_telepon">Nomor Telepon</label>
+                        <div class="col-sm-11">
+                            <input type="text" name="nomor_telepon" id="nomor_telepon" class="form-control"
+                                placeholder="Isi dengan Nomor Telepon" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="email">Email</label>
+                        <div class="col-sm-11">
+                            <input type="text" name="email" id="email" class="form-control"
+                                placeholder="Isi dengan Email" />
+                        </div>
+                    </div>
+                    <div class="row mb-3 align-items-center">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="namaorgtua">Nama orang tua</label>
+                        <div class="col-sm-11">
+                            <input type="text" name="namaorgtua" id="namaorgtua" class="form-control"
+                                placeholder="Isi dengan Nama Orang Tuamu" />
+                        </div>
+                    </div>
+                    <div class="row mb-3 align-items-center">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="pekerjaanorgtua">Pekerjaan Orang Tua</label>
+                        <div class="col-sm-11">
+                            <input type="text" name="pekerjaanorgtua" id="pekerjaanorgtua" class="form-control"
+                                placeholder="Isi dengan Pekerjaan Orang Tuamu" />
+                        </div>
+                    </div>
+                    <div class="row mb-3 align-items-center">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="pilihansatu">Pilihan Jurusan 1</label>
+                        <div class="col-sm-11">
+                            <select name="pilihansatu" id="pilihansatu" class="form-control" required>
+                                <option value="" disabled>Pilih Jurusan</option>
+                                <option value="TKJ">Teknik Komputer dan Jaringan</option>
+                                <option value="RPL">Rekayasa Perangkat Lunak</option>
+                                <option value="Perhotelan">Perhotelan</option>
+                                <option value="Perkantoran">Perkantoran</option>
+                                <option value="Otomotif">Otomotif</option>
+                                <option value="Pertanian">Pertanian</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3 align-items-center">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="pilihandua">Pilihan Jurusan 2</label>
+                        <div class="col-sm-11">
+                            <select name="pilihandua" id="pilihandua" class="form-control" required>
+                                <option value="" disabled>Pilih Jurusan</option>
+                                <option value="TKJ">Teknik Komputer dan Jaringan</option>
+                                <option value="RPL">Rekayasa Perangkat Lunak</option>
+                                <option value="Perhotelan">Perhotelan</option>
+                                <option value="Perkantoran">Perkantoran</option>
+                                <option value="Otomotif">Otomotif</option>
+                                <option value="Pertanian">Pertanian</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="kartu_kip">Kartu KIP</label>
+                        <div class="col-sm-11">
+                              <input type="file" name="kartu_kip" id="kartu_kip" class="form-control" accept="image/*" />
+        <small class="text-muted">Format: JPG, PNG, max 2MB</small>
+                        </div>
+                    </div>
+                      <div class="row mb-3">
+                        <div class="col-sm-10">
+                         <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-
-    <!-- Jquery JS-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <!-- Vendor JS-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
-
-    <!-- Main JS-->
-    <script src="{{asset('js/globalreg.js')}}"></script>
-
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-
-</html>
-<!-- end document-->
+    </div>
+@endsection

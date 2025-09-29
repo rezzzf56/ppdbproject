@@ -37,12 +37,11 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/superadmin/update', [App\Http\Controllers\Superadmin\SuperadminController::class, 'updateprofilesadm'])->name('superadmin.updateprofilesadm');
     Route::get('/superadmin/showacc', [App\Http\Controllers\Superadmin\SuperadminController::class, 'showacc'])->name('superadmin.showacc');
     Route::delete('/superadmin/delete/{id}', [App\Http\Controllers\Superadmin\SuperadminController::class, 'deleteprofilesadmin'])->name('superadmin.deleteprofilesadmin');
-
+    Route::post('/superadmin/bulk-action', [App\Http\Controllers\Superadmin\SuperadminController::class, 'bulkAction'])->name('superadmin.bulkAction');
+ 
     // Admin
-    Route::get('/admin/dashboard', function () {
-        return view('dashboard.admin.admin');
-    })->name('admin.dashboard')->middleware(['auth']);
-
+    Route::get('/admin/dashboard', function () {return view('dashboard.admin.admin');})->name('admin.dashboard')->middleware(['auth']);
+    Route::get('/admin/showcpd', [App\Http\Controllers\AdminController::class, 'showcpd'])->name('admin.showcpd');
     // CPD
     Route::get('/cpd/dashboard', function () {
         return view('dashboard.cpd.cpd');

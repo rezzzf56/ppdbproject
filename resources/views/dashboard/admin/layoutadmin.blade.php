@@ -63,11 +63,10 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('assetcrud/assets/js/config.js')}}"></script>
           @vite(['resources/css/app.css', 'resources/js/app.js'])
-          @stack('styles')
   </head>
 
   <body>
-   @include('dashboard.superadmin.navbarcrud')
+   @include('dashboard.admin.navbaradmin')
       <!-- navbar -->
   
 <!-- content -->
@@ -83,7 +82,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
- @stack('scripts')
+
     <script src="{{asset('assetcrud/assets/vendor/libs/jquery/jquery.js')}}"></script>
     <script src="{{asset('assetcrud/assets/vendor/libs/popper/popper.js')}}"></script>
     <script src="{{asset('assetcrud/assets/vendor/js/bootstrap.js')}}"></script>
@@ -101,8 +100,6 @@
 
     <!-- Main JS -->
     <script src="{{asset('assetcrud/assets/js/main.js')}}"></script>
-    <script src="{{asset('js/Bulkaction.js')}}"></script>
-    
 
       </body>
 </html>

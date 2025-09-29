@@ -45,7 +45,7 @@
                 <!-- Logo -->
                 <div class="col-3 d-flex align-items-center">
                     <h1 class="my-0 site-logo">
-                        <p class="text-black h4 mb-0">SUPERADMIN</p>
+                        <p class="text-black h4 mb-0">SMK EXAMPLE</p>
                     </h1>
                 </div>
 
@@ -53,11 +53,11 @@
                 <div class="col-9 d-flex justify-content-end">
                     <nav class="site-navigation" role="navigation">
                         <ul class="site-menu main-menu d-none d-lg-block">
-                            <li><a href="{{ route('superadmin.create') }}" class="nav-link">Tambah admin</a></li>
-                            <li><a href="{{ route('superadmin.showall') }}"  class="nav-link">Lihat admin</a></li>
-                            <li> <a href="{{ route('superadmin.createacc') }}" class="nav-link">Buat Akun admin</a></li>
-                            <li>  <a href="{{ route('superadmin.showacc') }}"  class="nav-link">Lihat Akun admin</a></li>
-
+                            <li><a href="" class="nav-link">Aktivasi CPD</a></li>
+                            <li><a href="{{ route('admin.showcpd')}}"  class="nav-link">Lihat CPD</a></li>
+                            <li><a href=""  class="nav-link">Lihat Hasil Seleksi CPD</a></li>
+                            <li> <a href="" class="nav-link">Buat Akun CPD</a></li>
+                            <li>  <a href=""  class="nav-link">Lihat Akun CPD</a></li>
                         </ul>
                     </nav>
                 </div>

@@ -15,8 +15,7 @@ return new class extends Migration
         Schema::create('ppdbjalurprestasi', function (Blueprint $table) {
             $table->id();
             $table->string('prestasi')->nullable();
-                        $table->unsignedBigInteger('profilescpd_id')->nullable()->unique();
-
+            $table->unsignedBigInteger('profilescpd_id')->nullable()->unique();
           $table->foreign('profilescpd_id')
           ->references('id')->on('profilescpd')
           ->onDelete('cascade');

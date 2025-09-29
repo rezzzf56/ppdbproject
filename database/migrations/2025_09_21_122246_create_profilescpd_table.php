@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('pekerjaanorgtua',16)->nullable();
             $table->enum('pilihansatu', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
             $table->enum('pilihandua', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
+            $table->decimal('nilai',4,2)->nullable();
             $table->enum('jalur_pendaftaran', ['afirmasi', 'prestasi', 'zonasi'])->nullable();
             $table->enum('status', ['pending', 'active', 'rejected'])->default('pending');
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();

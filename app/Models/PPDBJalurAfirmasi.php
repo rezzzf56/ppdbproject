@@ -8,7 +8,7 @@ class PPDBJalurAfirmasi extends Model
 {
     protected $table = 'ppdbjalurafirmasi';
     protected $fillable = [
-        'kartu_kip', 'profilesadmin_id'
+        'kartu_kip', 'profilescpd_id'
     ];
 
     public function profilesadmin(){

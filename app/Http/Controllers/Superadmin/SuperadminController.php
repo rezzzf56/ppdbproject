@@ -39,13 +39,26 @@ class SuperadminController extends Controller
 
         return redirect()->route('superadmin.showall');
     }
-    public function showall()
-    {
-        $superadmin = Profilesadmin::orderBy('created_at', 'asc')->get();
+public function showall(Request $request)
+{
+    $query = Profilesadmin::query();
 
-        return view('dashboard.superadmin.mainmanage', compact('superadmin'));
-
+    if ($request->filled('search')) {
+        $query->where(function ($q) use ($request) {
+            $q->where('nama', 'like', '%' . $request->search . '%')
+              ->orWhere('email', 'like', '%' . $request->search . '%');
+        });
     }
+
+    if ($request->filled('sort') && $request->sort == 'terlama') {
+        $query->orderBy('created_at', 'asc');
+    } else {
+        $query->orderBy('created_at', 'desc');
+    }
+
+ $superadmin = $query->paginate(3)->appends($request->query());
+    return view('dashboard.superadmin.mainmanage', compact('superadmin'));
+}
 
     public function showuserprofiles(string $id)
     {
@@ -126,9 +139,29 @@ public function updateprofilesadm(Request $request){
     ]);
     return redirect()->route('superadmin.showall');
 }
-public function showacc(){
-     $users = User::with('roles')->whereHas('roles', fn ($q) => $q->where('slug', 'admin'))->orderBy('created_at','asc')->get();
-            return view('dashboard.superadmin.showacc', compact('users'));
+public function showacc(Request $request)
+{
+    $query = User::with('roles')
+        ->whereHas('roles', function ($q) {
+            $q->where('slug', 'admin');
+        });
+
+    if ($request->filled('search')) {
+        $query->where(function ($q) use ($request) {
+            $q->where('email', 'like', '%' . $request->search . '%');
+        
+        });
+    }
+
+    if ($request->filled('sort') && $request->sort == 'terlama') {
+        $query->orderBy('created_at', 'asc');
+    } else {
+        $query->orderBy('created_at', 'desc');
+    }
+
+    $users = $query->paginate(3)->appends($request->query());
+
+    return view('dashboard.superadmin.showacc', compact('users'));
 }
 public function deleteprofilesadmin(string $id){
     {
@@ -139,4 +172,26 @@ public function deleteprofilesadmin(string $id){
         return redirect()->route('superadmin.showall');
     }
 }
+public function bulkAction(Request $request)
+{
+    $ids = $request->input('selected', []);
+    $action = $request->input('action');
+
+    if (empty($ids) || !$action) {
+        return back()->with('error', 'Pilih admin dan aksi terlebih dahulu.');
+    }
+
+    switch ($action) {
+        case 'delete':
+            Profilesadmin::whereIn('id', $ids)->delete();
+            return redirect('superadmin.showall');
+        case 'putuskan': Profilesadmin::whereIn('id', $ids)->update([
+                'user_id' => null,
+            ]);
+            return redirect()->route('superadmin.showall');
+        default:
+            return back()->with('error', 'Aksi tidak valid.');
+    }
+}
+
 }

@@ -44,6 +44,7 @@
      <link rel="stylesheet" href="{{asset('css/count.css')}}">
      <link rel="stylesheet" href="{{asset('css/loginform.css')}}">
 
+     
 
 
 
@@ -71,10 +72,10 @@
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('js/jquery.sticky.js')}}"></script>
-    <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/countsetting.js')}}"></script>
     <script src="{{asset('js/form-utils.js')}}"></script>
+    <script src="{{asset('js/SentenceRule.js')}}"></script>
+
 
 
 
