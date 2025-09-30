@@ -13,14 +13,20 @@ class AuthenticatedSessionController extends Controller
     {
         return view('auth.login');
     }
+
     public function store(Request $request): RedirectResponse
-    {
+    {        if (Auth::check()) {
+            return back()->withErrors([
+                'email' => 'Anda sudah login sebagai ' . Auth::user()->email . '. Silakan logout dulu untuk masuk dengan akun lain.'
+            ]);
+        }
+
         $request->validate([
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
         ]);
 
-        if (! Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+        if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
             return back()->withErrors([
                 'email' => 'Email atau password salah.',
             ]);
@@ -29,6 +35,16 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $user = Auth::user();
+
+        if ($user->is_logged_in) {
+            Auth::logout();
+            return back()->withErrors([
+                'email' => 'Akun ini sedang digunakan di perangkat lain.'
+            ]);
+        }
+
+        $user->update(['is_logged_in' => true]);
+
         if ($user->hasRole('superadmin')) {
             return redirect()->route('super.dashboard');
         } elseif ($user->hasRole('admin')) {
@@ -42,6 +58,7 @@ class AuthenticatedSessionController extends Controller
             }
             return redirect()->route('cpd.dashboard');
         }
+
         return redirect('/');
     }
 }

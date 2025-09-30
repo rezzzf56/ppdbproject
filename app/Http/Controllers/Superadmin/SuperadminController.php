@@ -184,7 +184,7 @@ public function bulkAction(Request $request)
     switch ($action) {
         case 'delete':
             Profilesadmin::whereIn('id', $ids)->delete();
-            return redirect('superadmin.showall');
+            return redirect()->route('superadmin.showall');
         case 'putuskan': Profilesadmin::whereIn('id', $ids)->update([
                 'user_id' => null,
             ]);

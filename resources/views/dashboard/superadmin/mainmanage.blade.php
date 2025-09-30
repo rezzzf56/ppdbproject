@@ -12,7 +12,7 @@
                 <button type="submit" class="btn btn-primary">Terapkan</button>
                 <a href="{{ route('superadmin.showall') }}" class="btn btn-danger">Reset</a>
             </form>
-            <table id="adminTable" class="table table-bordered">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th class="multi-select-col" style="display:none;">
@@ -27,7 +27,7 @@
                 <tbody>
                     @if ($superadmin->count() > 0)
                         @foreach ($superadmin as $a)
-                            <tr data-id="{{ $a->id }}">
+                            <tr>
                                 <th>{{ $superadmin->firstItem() + $loop->index }}</th>
                                 <td>{{ $a->nama }}</td>
                                 <td>{{ $a->email }}</td>
@@ -66,16 +66,7 @@
             <div class="mt-3 d-flex justify-content-center">
                 {{ $superadmin->links() }}
             </div>
-            <form id="bulkForm" method="POST" action="{{ route('superadmin.bulkAction') }}" style="display:none;"
-                class="mb-3">
-                @csrf
-                <select name="action" class="form-select d-inline w-auto">
-                      <option value="delete">Hapus</option>
-                      <option value="putuskan">Putuskan Kaitan</option>
-                </select>
-                <button type="submit" class="btn btn-primary">Terapkan</button>
-                <button type="button" id="cancel-multi" class="btn btn-outline-danger">Batal</button>
-            </form>
+            
         </div>
     </div>
 @endsection

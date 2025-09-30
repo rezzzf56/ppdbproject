@@ -4,6 +4,7 @@ use App\Http\Controllers\DaftarController;
 use Illuminate\Support\Facades\Route;
 
 /* halaman awal */
+
 Route::get('/', function () {
     return view('halamanumum');
 })->name('home');
@@ -19,34 +20,38 @@ Route::get('/daftar/prestasi', [DaftarController::class, 'prestasi'])->name('for
 Route::get('/daftar/afirmasi', [DaftarController::class, 'afirmasi'])->name('form.afirmasi');
 Route::get('daftar/success', [DaftarController::class, 'successreg'])->name('success.reg');
 Route::post('/daftar/savereg', [DaftarController::class, 'storereg'])->name('form.storereg');
-Route::middleware(['auth'])->group(function () {
-    Route::get('/superadmin/dashboard', function () {
+Route::middleware(['auth', 'role:superadmin'])->group(function () {
+Route::get('/superadmin/dashboard', function () {
         return view('dashboard.superadmin.superadmin');
     })->name('super.dashboard')->middleware(['auth']);
-    Route::get('/superadmin/create', [App\Http\Controllers\Superadmin\SuperadminController::class, 'create'])->name('superadmin.create');
-    Route::get('/superadmin/showall', [App\Http\Controllers\Superadmin\SuperadminController::class, 'showall'])->name('superadmin.showall');
-    Route::post('/superadmin/store', [App\Http\Controllers\Superadmin\SuperadminController::class, 'store'])->name('superadmincreate.store');
-    Route::get('/superadmin/editadmin', [App\Http\Controllers\Superadmin\SuperadminController::class, 'edit'])->name('superadmin.edit');
-    Route::get('/superadmin/show/{id}', [\App\Http\Controllers\Superadmin\SuperadminController::class, 'showuserprofiles'])->name('superadmin.detail');
-    Route::get('superadmin/hubungkanakun/{id}', [\App\Http\Controllers\Superadmin\SuperadminController::class, 'link'])->name('superadmin.link');
-    Route::post('/superadmin/storelink', [App\Http\Controllers\Superadmin\SuperadminController::class, 'storelink'])->name('superadmin.storelink');
-    Route::get('/superadmin/createaccount', [App\Http\Controllers\Superadmin\SuperadminController::class, 'createacc'])->name('superadmin.createacc');
-    Route::post('/superadmin/saveacc', [App\Http\Controllers\Superadmin\SuperadminController::class, 'saveacc'])->name('superadminsaveacc.store');
-    Route::post('/superadmin/unlink/{id}', [App\Http\Controllers\Superadmin\SuperadminController::class, 'unlink'])->name('superadmin.unlink');
-    Route::get('/superadmin/edit/{id}', [App\Http\Controllers\Superadmin\SuperadminController::class, 'editprofilesadm'])->name('superadmin.editprofilesadm');
-    Route::put('/superadmin/update', [App\Http\Controllers\Superadmin\SuperadminController::class, 'updateprofilesadm'])->name('superadmin.updateprofilesadm');
-    Route::get('/superadmin/showacc', [App\Http\Controllers\Superadmin\SuperadminController::class, 'showacc'])->name('superadmin.showacc');
-    Route::delete('/superadmin/delete/{id}', [App\Http\Controllers\Superadmin\SuperadminController::class, 'deleteprofilesadmin'])->name('superadmin.deleteprofilesadmin');
-    Route::post('/superadmin/bulk-action', [App\Http\Controllers\Superadmin\SuperadminController::class, 'bulkAction'])->name('superadmin.bulkAction');
- 
-    // Admin
-    Route::get('/admin/dashboard', function () {return view('dashboard.admin.admin');})->name('admin.dashboard')->middleware(['auth']);
-    Route::get('/admin/showcpd', [App\Http\Controllers\AdminController::class, 'showcpd'])->name('admin.showcpd');
-    // CPD
-    Route::get('/cpd/dashboard', function () {
+Route::get('/superadmin/create', [App\Http\Controllers\Superadmin\SuperadminController::class, 'create'])->name('superadmin.create');
+Route::get('/superadmin/showall', [App\Http\Controllers\Superadmin\SuperadminController::class, 'showall'])->name('superadmin.showall');
+Route::post('/superadmin/store', [App\Http\Controllers\Superadmin\SuperadminController::class, 'store'])->name('superadmincreate.store');
+Route::get('/superadmin/editadmin', [App\Http\Controllers\Superadmin\SuperadminController::class, 'edit'])->name('superadmin.edit');
+Route::get('/superadmin/show/{id}', [\App\Http\Controllers\Superadmin\SuperadminController::class, 'showuserprofiles'])->name('superadmin.detail');
+Route::get('superadmin/hubungkanakun/{id}', [\App\Http\Controllers\Superadmin\SuperadminController::class, 'link'])->name('superadmin.link');
+Route::post('/superadmin/storelink', [App\Http\Controllers\Superadmin\SuperadminController::class, 'storelink'])->name('superadmin.storelink');
+Route::get('/superadmin/createaccount', [App\Http\Controllers\Superadmin\SuperadminController::class, 'createacc'])->name('superadmin.createacc');
+Route::post('/superadmin/saveacc', [App\Http\Controllers\Superadmin\SuperadminController::class, 'saveacc'])->name('superadminsaveacc.store');
+Route::post('/superadmin/unlink/{id}', [App\Http\Controllers\Superadmin\SuperadminController::class, 'unlink'])->name('superadmin.unlink');
+Route::get('/superadmin/edit/{id}', [App\Http\Controllers\Superadmin\SuperadminController::class, 'editprofilesadm'])->name('superadmin.editprofilesadm');
+Route::put('/superadmin/update', [App\Http\Controllers\Superadmin\SuperadminController::class, 'updateprofilesadm'])->name('superadmin.updateprofilesadm');
+Route::get('/superadmin/showacc', [App\Http\Controllers\Superadmin\SuperadminController::class, 'showacc'])->name('superadmin.showacc');
+Route::delete('/superadmin/delete/{id}', [App\Http\Controllers\Superadmin\SuperadminController::class, 'deleteprofilesadmin'])->name('superadmin.deleteprofilesadmin');
+Route::post('/superadmin/bulk-action', [App\Http\Controllers\Superadmin\SuperadminController::class, 'bulkAction'])->name('superadmin.bulkAction');
+});
+// Admin
+Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::get('/admin/dashboard', function () {
+ return view('dashboard.admin.admin');
+    })->name('admin.dashboard');
+Route::get('/admin/showcpd', [App\Http\Controllers\AdminController::class, 'showcpd'])->name('admin.showcpd');
+});
+// CPD
+Route::middleware(['auth', 'role:cpd'])->group(function () {
+ Route::get('/cpd/dashboard', function () {
         return view('dashboard.cpd.cpd');
     })->name('cpd.dashboard')->middleware(['auth']);
-
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
