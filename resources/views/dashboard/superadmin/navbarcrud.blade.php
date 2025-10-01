@@ -43,25 +43,21 @@
             <div class="row align-items-center">
 
                 <!-- Logo -->
-                <div class="col-3 d-flex align-items-center">
-                    <h1 class="my-0 site-logo">
-                        <p class="text-black h4 mb-0">SUPERADMIN</p>
-                    </h1>
-                </div>
-
+               <div class="col-3 d-flex align-items-center">
+    <h4 class="mb-0">SMK EXAMPLE</h4>
+</div>
                 <!-- Navbar -->
                 <div class="col-9 d-flex justify-content-end">
                     <nav class="site-navigation" role="navigation">
                         <ul class="site-menu main-menu d-none d-lg-block">
+                            <li><a href="{{ route('super.dashboard') }}"  class="nav-link fs-6">Home</a></li>
                             <li><a href="{{ route('superadmin.create') }}" class="nav-link">Tambah admin</a></li>
                             <li><a href="{{ route('superadmin.showall') }}"  class="nav-link">Lihat admin</a></li>
                             <li> <a href="{{ route('superadmin.createacc') }}" class="nav-link">Buat Akun admin</a></li>
-                            <li>  <a href="{{ route('superadmin.showacc') }}"  class="nav-link">Lihat Akun admin</a></li>
-
+                            <li><a href="{{ route('superadmin.showacc') }}"  class="nav-link">Lihat Akun admin</a></li>
                         </ul>
-                    </nav>
-                </div>
-
+                                        </nav>
+                </div>   
             </div>
         </div>
     </header>

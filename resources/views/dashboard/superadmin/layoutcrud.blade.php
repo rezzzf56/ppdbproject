@@ -66,7 +66,7 @@
           @stack('styles')
   </head>
 
-  <body>
+  <body style="background-color: rgba(0, 51, 118, 0.212);">
    @include('dashboard.superadmin.navbarcrud')
       <!-- navbar -->
   

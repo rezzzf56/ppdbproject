@@ -135,7 +135,6 @@ public function updateprofilesadm(Request $request){
     $profilesadmin->update([
         'nama' => request()->nama,
         'email' => request()->email,
-        'user_id' => request()->user_id
     ]);
     return redirect()->route('superadmin.showall');
 }
@@ -193,5 +192,29 @@ public function bulkAction(Request $request)
             return back()->with('error', 'Aksi tidak valid.');
     }
 }
+public function count(){
+    $jumlahadmin = User::with('role')->whereHas('role', function($query){
+        $query->where('slug','admin');
+    })->count();
+    $jumlahakuntanpapemilik = User::with('roles')->whereDoesntHave('profilesadmin')
+    ->whereHas('roles', fn ($q) => $q->where('slug', 'admin'))
+            ->count();
+              $jumlahakundenganpemilik = User::with('roles')->whereHas('profilesadmin')
+    ->whereHas('roles', fn ($q) => $q->where('slug', 'admin'))
+            ->count();
+            return view('dashboard.superadmin.superadmin',compact('jumlahadmin','jumlahakuntanpapemilik','jumlahakundenganpemilik'));
+}
+public function editacc(string $id){
+    $adminacc = User::findorFail($id);
+    return view('dashboard.superadmin.editacc', compact('adminacc'));
+}
+public function updateacc(Request $request){
+    $adminacc = User::findorFail(request()->id);
+    $adminacc->update([
+        'email' => request()->email,
+        'password' => request()->password,
+    ]);
+    return redirect()->route('superadmin.showacc');
 
+}
 }

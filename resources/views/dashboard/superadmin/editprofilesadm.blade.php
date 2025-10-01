@@ -25,19 +25,6 @@
                             placeholder="Email" value="{{ $profilesadmin->email }}" />
                     </div>
                 </div>
-                  <div class="row mb-6">
-                    <label class="col-sm-2 col-form-label" for="basic-default-company">Akun Login Admin</label>
-                    <div class="col-sm-10">
-                          <select name="user_id" id="user_id" class="form-control" required>
-                   <option value="" disabled>Pilih Akun</option>
-            @foreach($users as $user)
-                <option value="{{ $user->id }}" {{ $profilesadmin->user_id == $user->id ? 'selected' : '' }}>
-                 {{ $user->email }}
-                </option>
-            @endforeach
-        </select>
-                    </div>
-                </div>
                 <div class="row justify-content-end">
                     <div class="col-sm-10">
                         <button type="submit" class="btn btn-primary">Send</button>

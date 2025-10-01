@@ -61,4 +61,20 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+    public function destroy(Request $request): RedirectResponse
+{
+    $user = Auth::user();
+
+    if ($user) {
+        $user->update(['is_logged_in' => false]);
+    }
+
+    Auth::logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect()->route('login')->with('status', 'Anda sudah logout.');
+}
+
 }

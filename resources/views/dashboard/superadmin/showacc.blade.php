@@ -12,12 +12,11 @@
                 <button type="submit" class="btn btn-primary">Terapkan</button>
                 <a href="{{ route('superadmin.showacc') }}" class="btn btn-danger">Reset</a>
             </form>
-            <table class="table table-bordered">
-                <thead>
+            <table class="table table-bordered border-dark ">
+                <thead class="table-dark">
                     <tr>
                         <th>No</th>
                         <th>Email</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,3 +39,31 @@
         </div>
     </div>
 @endsection
+@push('styles')
+<style>
+.card {
+    border-radius: 12px;
+    transition: 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+input[name="search"] {
+    border: 2px solid #3f3f3f; 
+    border-radius: 8px;       
+}
+input[name="search"]:focus {
+    border-color: #0d6efd;  
+    box-shadow: 0 0 6px rgba(25, 135, 84, 0.5);
+}
+select[name="sort"]{
+     border: 2px solid #3f3f3f; 
+    border-radius: 8px;      
+}
+select[name="sort"]:focus{
+    border-color: #0d6efd;  
+    box-shadow: 0 0 6px rgba(25, 135, 84, 0.5);
+}
+</style>
+@endpush

@@ -51,6 +51,7 @@
                 <div class="col-9 d-flex justify-content-end">
                     <nav class="site-navigation" role="navigation">
                         <ul class="site-menu main-menu d-none d-lg-block">
+                            <li><a href="{{ route('home') }}" class="nav-link">Home</a></li>
                             <li><a href="{{ route('info') }}" class="nav-link">Informasi PPDB</a></li>
                             <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>
                             <li><a href="{{ route('selectpath') }}" class="nav-link">Daftar</a></li>
