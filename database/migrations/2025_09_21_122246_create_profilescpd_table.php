@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('profilescpd', function (Blueprint $table) {
             $table->id();
-            $table->string('nik',16)->nullable();
-            $table->string('nis',16)->nullable();
+            $table->string('nik',16)->nullable()->unique();
+            $table->string('nis',16)->nullable()->unique();
             $table->string('nama_lengkap',64)->nullable();
             $table->enum('jenis_kelamin', ['L', 'P'])->nullable();
             $table->date('tanggal_lahir')->nullable();
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('pekerjaanorgtua',16)->nullable();
             $table->enum('pilihansatu', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
             $table->enum('pilihandua', ['TKJ', 'RPL', 'Perhotelan', 'Perkantoran', 'Otomotif', 'Pertanian'])->nullable();
-            $table->decimal('nilai',4,2)->nullable();
+            $table->decimal('nem',5,2)->nullable();
             $table->enum('jalur_pendaftaran', ['afirmasi', 'prestasi', 'zonasi'])->nullable();
             $table->enum('status', ['pending', 'active', 'rejected'])->default('pending');
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();

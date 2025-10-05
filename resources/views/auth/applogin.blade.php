@@ -58,14 +58,8 @@
       <!-- navbar -->
   
 <!-- content -->
-   @if(View::hasSection('fullwidth'))
        
-    <span class="mt-3">@yield('fullwidth')</span>
-    @endif
-    <div class="content d-flex align-items-center">
         @yield('content')
-    </div>
-    @yield('section-counter')
 <!-- content -->
 <!-- footer-->
   @include('layouts.footer')

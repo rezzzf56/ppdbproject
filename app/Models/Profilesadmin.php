@@ -10,7 +10,8 @@ class Profilesadmin extends Model
     protected $fillable = [
         'nama',
         'email',
-        'user_id'
+        'user_id',
+        'token'
     ];
 public function user()
 {

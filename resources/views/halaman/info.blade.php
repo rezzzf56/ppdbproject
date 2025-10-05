@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('body')
+<div style="padding-top: 11px;">
 @section('content')
   <section class="text-center py-5 w-100 m-0" style="background-image: url('{{ asset('images/skirk1.jpg') }}'); background-size: cover;">
       <h1 class="fw-bold text-black">Penerimaan Peserta Didik Baru (PPDB)</h1>
@@ -36,4 +38,8 @@
   </div>
 </div>
 
+@endsection
+@section('body-end')
+
+</div>
 @endsection

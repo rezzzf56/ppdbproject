@@ -9,7 +9,7 @@ class Profilescpd extends Model
     protected $table = 'profilescpd';
      protected $fillable = [
         'user_id','nik','nis','nama_lengkap','jenis_kelamin','tanggal_lahir',
-        'alamat','asal_sekolah','nomor_telepon','email','namaorgtua','pekerjaanorgtua','pilihansatu',
+        'alamat','asal_sekolah','nomor_telepon','nem','email','namaorgtua','pekerjaanorgtua','pilihansatu',
         'pilihandua','jalur_pendaftaran', 'status'
     ];
 

@@ -46,12 +46,18 @@ Route::get('/admin/dashboard', function () {
  return view('dashboard.admin.admin');
     })->name('admin.dashboard');
 Route::get('/admin/showcpd', [App\Http\Controllers\AdminController::class, 'showcpd'])->name('admin.showcpd');
+Route::get('/admin/detailcpd/{id}', [App\Http\Controllers\AdminController::class, 'showcpddetail'])->name('detailcpd.show');
+Route::post('/admin/cpd/{id}/verify', [App\Http\Controllers\AdminController::class, 'verifyCpd'])->name('admin.verifyCpd');
+Route::post('/admin/cpd/{id}/reject', [App\Http\Controllers\AdminController::class, 'rejectCpd'])->name('admin.rejectCpd');
+Route::post('/admin/cpd/{id}/generate-token', [App\Http\Controllers\AdminController::class, 'generateToken'])->name('admin.generateToken');
+
+
 });
 // CPD
 Route::middleware(['auth', 'role:cpd'])->group(function () {
  Route::get('/cpd/dashboard', function () {
-        return view('dashboard.cpd.cpd');
-    })->name('cpd.dashboard')->middleware(['auth']);
+        return view('dashboard.cpd.cpd');})->name('cpd.dashboard');
+Route::get('/cpd/hasilseleksi', [App\Http\Controllers\CPDController::class, 'resultselectionpage'])->name('cpd.pageselection');
 });
 
 require __DIR__ . '/auth.php';

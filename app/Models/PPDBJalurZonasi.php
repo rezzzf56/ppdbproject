@@ -8,7 +8,7 @@ class PPDBJalurZonasi extends Model
 {
     protected $table = 'ppdbjalurzonasi';
     protected $fillable = [
-       'profilescpd_id','jarak_rumah', 'lokasi_rumah'
+       'profilescpd_id','jarak_rumah'
     ];
 
     public function profilesadmin(){

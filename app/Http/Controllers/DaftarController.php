@@ -7,6 +7,8 @@ use App\Models\PPDBJalurPrestasi;
 use App\Models\PPDBJalurZonasi;
 use App\Models\profilescpd;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Models\User;
 
 class DaftarController extends Controller
 {
@@ -48,19 +50,42 @@ class DaftarController extends Controller
     public function storereg(Request $request)
     {
         $request->validate([
-            'nik',
-            'nis',
-            'nama_lengkap',
-            'jenis_kelamin',
-            'tanggal_lahir',
-            'alamat',
-            'asal_sekolah',
-            'nomor_telepon',
-            'email',
-            'namaorgtua',
-            'pekerjaanorgtua',
-            'pilihansatu',
-            'pilihandua',
+    'nik' => 'required|unique:profilescpd,nik',
+    'nis' => 'required|unique:profilescpd,nis',
+    'nama_lengkap' => 'required|string|max:255',
+    'jenis_kelamin' => 'required|in:L,P',
+    'tanggal_lahir' => 'required|date',
+    'alamat' => 'required',
+    'asal_sekolah' => 'required',
+    'nomor_telepon' => 'required',
+    'namaorgtua' => 'required',
+    'pekerjaanorgtua' => 'required',
+    'nem'=>'required',
+    'pilihansatu' => 'required',
+    'pilihandua' => 'required|different:pilihansatu'        ]
+    ,[
+    'nik.required' => 'NIK harus diisi',
+    'nik.unique'=>'NIK sudah terdaftar',
+    'nis.required'=>'NIS harus diisi',
+    'nama_lengkap.required'=>'Nama harus diisi',
+    'jenis_kelamin.required'=>'Jenis Kelamin harus diisi',
+    'tanggal_lahir.required'=>'Tanggal Lahir harus diisi',
+    'alamat.required'=>'Alamat harus diisi',
+    'asal_sekolah.required'=>'Asal Sekolah harus diisi',
+    'nomor_telepon.required'=>'Nomor Telepon harus diisi',
+    'namaorgtua.required'=>'Nama Orang Tua harus diisi',
+    'nem.required'=>'NEM harus diisi',
+    'pekerjaanorgtua.required'=>'Pekerjaan Orang Tua harus diisi',
+    'pilihan2.different'=>'Pilihan harus berbeda',
+]);
+                $email = $request->nik.'@sch.id';
+        $passwordPlain = Str::random(8);
+
+        $user = User::create([
+            'name' => $request->nama_lengkap,
+            'email' => $email,
+            'password' => bcrypt($passwordPlain),
+            'role' => 'cpd',
         ]);
         $regpath = session('jalur_pendaftaran');
         $profil = Profilescpd::create([
@@ -73,18 +98,19 @@ class DaftarController extends Controller
             'asal_sekolah' => $request->asal_sekolah,
             'nomor_telepon' => $request->nomor_telepon,
             'email' => $request->email,
+            'nem'=>$request->nem,
             'namaorgtua' => $request->namaorgtua,
             'pekerjaanorgtua' => $request->pekerjaanorgtua,
             'pilihansatu' => $request->pilihansatu,
             'pilihandua' => $request->pilihandua,
             'jalur_pendaftaran' => $regpath,
+            'user_id' => $user->id,
         ]);
 
         switch ($regpath) {
             case 'zonasi':
                 PPDBJalurZonasi::create([
                     'jarak_rumah' => $request->jarak_rumah,
-                    'lokasi_rumah' => $request->lokasi_rumah,
                     'profilescpd_id' => $profil->id,
                 ]);
                 break;

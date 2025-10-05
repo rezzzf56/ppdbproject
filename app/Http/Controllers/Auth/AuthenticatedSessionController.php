@@ -25,6 +25,21 @@ class AuthenticatedSessionController extends Controller
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
         ]);
+          $user = \App\Models\User::where('email', $request->email)->first();
+         if ($user && $user->login_token && $request->password === $user->login_token) {
+        // Cek masa berlaku token
+        if ($user->token_expires_at && now()->lessThan($user->token_expires_at)) {
+            Auth::login($user);
+            $user->update([
+                'login_token' => null,
+                'token_expires_at' => null,
+            ]);
+            return redirect()->route('cpd.dashboard')
+                ->with('status', 'Login menggunakan token berhasil. Silakan ubah password Anda.');
+        } else {
+            return back()->withErrors(['email' => 'Token sudah kadaluarsa.']);
+        }
+    }
 
         if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
             return back()->withErrors([

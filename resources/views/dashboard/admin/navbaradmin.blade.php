@@ -53,11 +53,9 @@
                 <div class="col-9 d-flex justify-content-end">
                     <nav class="site-navigation" role="navigation">
                         <ul class="site-menu main-menu d-none d-lg-block">
-                            <li><a href="" class="nav-link">Aktivasi CPD</a></li>
+                            <li><a href="{{ route('admin.dashboard') }}"  class="nav-link fs-6">Home</a></li>
                             <li><a href="{{ route('admin.showcpd')}}"  class="nav-link">Lihat CPD</a></li>
                             <li><a href=""  class="nav-link">Lihat Hasil Seleksi CPD</a></li>
-                            <li> <a href="" class="nav-link">Buat Akun CPD</a></li>
-                            <li>  <a href=""  class="nav-link">Lihat Akun CPD</a></li>
                         </ul>
                     </nav>
                 </div>

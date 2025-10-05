@@ -1,7 +1,9 @@
-@extends('layouts.app')
-@section('section-counter')
+@extends('auth.applogin')
+
+@section('content')
+<span style="padding-top : 11px;">
     <div class="body-ld">
-        <div class="content d-flex justify-content-center align-items-center min-vh-100">
+        <div class="d-flex justify-content-center align-items-center min-vh-100">
             <div class="login-container ">
                 <form action="{{ route('login.store') }}" method="POST" id="loginForm">
                     @csrf
@@ -88,9 +90,9 @@
                 </form>
 
             </div>
+        </span>
 
-
-            <div class="success-message" id="successMessage">
+            <div class="success-message mb-0" id="successMessage">
                 <div class="success-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <circle cx="12" cy="12" r="12" fill="#635BFF" />

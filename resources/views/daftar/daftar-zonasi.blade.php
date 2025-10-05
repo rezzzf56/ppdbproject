@@ -14,6 +14,11 @@
                    <div class="col-sm-11">                      
                             <input type="text" name="nik" id="nik" class="form-control"
                                 placeholder="Isi dengan NIK" />
+                                   @error('nik')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -21,13 +26,24 @@
                    <div class="col-sm-11">   
                             <input type="text" name="nis" id="nis" class="form-control"
                                 placeholder="Isi dengan NIS" />
+                                 @error('nis')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
+                          
                     </div>
                     <div class="row mb-3">
                         <label class="col-sm-1 col-form-label text-sm-start" for="nama_lengkap">Nama</label>
                         <div class="col-sm-11">
                             <input type="text" name="nama_lengkap" id="nama_lengkap" data-capitalize="words" class="form-control"" 
                                 placeholder="Isi dengan nama lengkap" />
+                                   @error('nama_lengkap')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -51,6 +67,11 @@
                         <div class="col-sm-11">
                             <input type="text" name="alamat" id="alamat" data-capitalize="words" class="form-control"
                                 placeholder="Isi dengan alamat" />
+                                   @error('alamat')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -58,6 +79,11 @@
                         <div class="col-sm-11">
                             <input type="text" name="asal_sekolah" id="asal_sekolah" data-capitalize="words" class="form-control"
                                 placeholder="Isi Asal Sekolah" />
+                                   @error('asal_sekolah')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-3 align-items-center">
@@ -65,13 +91,11 @@
                         <div class="col-sm-11">
                             <input type="text" name="nomor_telepon" id="nomor_telepon" class="form-control"
                                 placeholder="Isi dengan Nomor Telepon" />
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label class="col-sm-1 col-form-label text-sm-start" for="email">Email</label>
-                        <div class="col-sm-11">
-                            <input type="text" name="email" id="email" data-capitalize="words" class="form-control"
-                                placeholder="Isi dengan Email" />
+                                   @error('nomor_telepon')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-3 align-items-center">
@@ -79,6 +103,11 @@
                         <div class="col-sm-11">
                             <input type="text" name="namaorgtua" id="namaorgtua" data-capitalize="words" class="form-control"
                                 placeholder="Isi dengan Nama Orang Tuamu" />
+                                   @error('namaorgtua')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-3 align-items-center">
@@ -86,6 +115,11 @@
                         <div class="col-sm-11">
                             <input type="text" name="pekerjaanorgtua" id="pekerjaanorgtua" data-capitalize="words" class="form-control"
                                 placeholder="Isi dengan Pekerjaan Orang Tuamu" />
+                                   @error('pekerjaanorgtua')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-3 align-items-center">
@@ -114,6 +148,23 @@
                                 <option value="Otomotif">Otomotif</option>
                                 <option value="Pertanian">Pertanian</option>
                             </select>
+                               @error('pilihandua')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                      <div class="row mb-3 align-items-center">
+                        <label class="col-sm-1 col-form-label text-sm-start" for="nem">NEM</label>
+                        <div class="col-sm-11">
+                            <input type="text" name="nem" id="nem" data-capitalize="words" class="form-control"
+                                placeholder="Isi dengan NEM" />
+                                   @error('nem')
+                                <div class="invalid-feedback d-block">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -121,13 +172,6 @@
                         <div class="col-sm-11">
                             <input type="text" name="jarak_rumah" id="jarak_rumah" class="form-control"
                                 placeholder="Isi dengan Jarak Rumah" />
-                        </div>
-                    </div>
-                    <div class="row mb-3 align-items-center">
-                        <label class="col-sm-1 col-form-label text-sm-start" for="nama">Lokasi Rumah</label>
-                        <div class="col-sm-11">
-                            <input type="text" name="lokasi_rumah" id="lokasi_rumah" data-capitalize="words" class="form-control"
-                                placeholder="Isi dengan alamat" />
                         </div>
                     </div>
                       <div class="row mb-3">
